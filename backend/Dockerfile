@@ -10,8 +10,6 @@ COPY . .
 # packages install
 RUN npm i
 
-# tests
-
 
 # Stage 2
 FROM node:21-slim
