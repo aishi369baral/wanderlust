@@ -1,3 +1,24 @@
+# Terraform sensitive files
+.terraform/
+.terraform.lock.hcl
+
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.*
+
+# Terraform crash logs
+crash.log
+
+# Terraform override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform SSH keys
+terraform/terra-key
+terraform/terra-key.pub
 frontend/node_modules
 frontend/.env.local
 backend/.env
