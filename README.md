@@ -95,6 +95,34 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
+Update package index again
+```bash
+sudo apt-get update
+```
+
+Install Docker Engine, CLI, and containerd
+```bash
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Verify Docker installation
+```bash
+docker --version
+```
+
+Verify Docker Compose installation
+```bash
+docker compose version
+```
+
+Add $USER to the docker group and update the group
+```bash
+sudo usermod -aG docker $USER && newgrp docker
+```
+
+
+
+
 
 
 
