@@ -65,6 +65,16 @@ WanderLust is a simple MERN travel blog website ✈
 - <b>Open the below ports in security group of master machine</b>
 <img width="1900" height="766" alt="Ports_ToBe_Opened_Automate" src="https://github.com/user-attachments/assets/35b2ef7b-1ac6-4e35-bd20-ac7e09417348" />
 
+> [!Note]
+> We are creating this master machine because we will configure Jenkins master, eksctl, EKS cluster creation from here.
+
+Install & Configure Docker by using below command, "NewGrp docker" will refresh the group config hence no need to restart the EC2 machine.
+
+# Update packages
+```bash
+sudo apt-get update
+```
+
 
 
 
