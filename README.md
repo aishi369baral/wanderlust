@@ -70,7 +70,7 @@ WanderLust is a simple MERN travel blog website ✈
 
 Install & Configure Docker by using below command, "NewGrp docker" will refresh the group config hence no need to restart the EC2 machine.
 
-# Update packages
+Update Packages:
 ```bash
 sudo apt-get update
 ```
