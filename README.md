@@ -39,19 +39,19 @@ WanderLust is a simple MERN travel blog website ✈
 
 #
 > [!Important]
-> Below table helps you to navigate to the particular tool installation section fast.
+> Below table showcases Tools used.
 
 | Tech stack    | Installation |
 | -------- | ------- |
 | Jenkins Master | Install and configure Jenkins    |
 | eksctl | Install eksctl     |
-| Argocd | <a href="#Argo">Install and configure ArgoCD</a>     |
-| Jenkins-Worker Setup | <a href="#Jenkins-worker">Install and configure Jenkins Worker Node</a>     |
-| OWASP setup | <a href="#Owasp">Install and configure OWASP</a>     |
-| SonarQube | <a href="#Sonar">Install and configure SonarQube</a>     |
-| Email Notification Setup | <a href="#Mail">Email notification setup</a>     |
-| Monitoring | <a href="#Monitor">Prometheus and grafana setup using helm charts</a>
-| Clean Up | <a href="#Clean">Clean up</a>     |
+| Argocd | Install and configure ArgoCD     |
+| Jenkins Setup | Install and configure Jenkins Node    |
+| OWASP setup | Install and configure OWASP     |
+| SonarQube | Install and configure SonarQube     |
+| Email Notification Setup | Email notification setup     |
+| Monitoring | Prometheus and grafana setup using helm charts
+| Clean Up | Clean up    |
 #
 
 
