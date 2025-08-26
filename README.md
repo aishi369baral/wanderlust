@@ -43,8 +43,8 @@ WanderLust is a simple MERN travel blog website ✈
 
 | Tech stack    | Installation |
 | -------- | ------- |
-| Jenkins Master | <a href="#Jenkins">Install and configure Jenkins</a>     |
-| eksctl | <a href="#EKS">Install eksctl</a>     |
+| Jenkins Master | Install and configure Jenkins    |
+| eksctl | Install eksctl     |
 | Argocd | <a href="#Argo">Install and configure ArgoCD</a>     |
 | Jenkins-Worker Setup | <a href="#Jenkins-worker">Install and configure Jenkins Worker Node</a>     |
 | OWASP setup | <a href="#Owasp">Install and configure OWASP</a>     |
