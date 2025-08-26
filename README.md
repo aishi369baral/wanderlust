@@ -126,6 +126,77 @@ sudo usermod -aG docker $USER && newgrp docker
 <b>Check Docker Working</b>
 
 <img width="1152" height="648" alt="dockerWorking_properly" src="https://github.com/user-attachments/assets/8004d427-fced-40b7-a992-32a8bf973314" />
+#
+
+- <b id="Jenkins">Install and configure Jenkins (Master machine)</b>
+
+Install Java (Jenkins needs Java)
+```bash
+sudo apt update
+sudo apt install -y fontconfig openjdk-17-jdk
+java -version
+```
+
+Add Jenkins repository and install
+Add Jenkins key
+```bash
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+```
+
+Add Jenkins repo
+```bash
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | \
+  sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+```
+
+Update and install Jenkins
+```bash
+sudo apt update
+sudo apt install -y jenkins
+```
+
+Start and enable Jenkins
+```bash
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+sudo systemctl status jenkins
+```
+
+Open Firewall (port 8080 for Jenkins UI)
+
+
+Get Initial Admin Password
+```bash
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+👉 Copy this password.
+
+Access Jenkins UI
+
+Open browser: http://<your-server-ip>:8080
+Paste the password from Step 5
+
+Install suggested plugins
+
+Create your first admin user
+
+Jenkins is ready 🎉
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
