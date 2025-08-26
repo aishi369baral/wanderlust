@@ -1,13 +1,13 @@
 # Wanderlust - Your Ultimate Travel Blog 🌍✈️
 
-WanderLust is a simple MERN travel blog website ✈ This project is aimed to help people to contribute in open source, upskill in react and also master git.
+WanderLust is a simple MERN travel blog website ✈ 
 
 ![Preview Image](https://github.com/krishnaacharyaa/wanderlust/assets/116620586/17ba9da6-225f-481d-87c0-5d5a010a9538)
 #
 
 # Wanderlust Mega Project End to End Implementation
 
-### In this demo, we will see how to deploy an end to end three tier MERN stack application on EKS cluster.
+### In this project, we will see how to deploy an end to end three tier MERN stack application on EKS cluster.
 #
 ### <mark>Project Deployment Flow:</mark>
 
