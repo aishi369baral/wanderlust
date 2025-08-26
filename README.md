@@ -120,6 +120,10 @@ Add $USER to the docker group and update the group
 sudo usermod -aG docker $USER && newgrp docker
 ```
 
+<b>Check Docker Working</b>
+
+<img width="1152" height="648" alt="dockerWorking_properly" src="https://github.com/user-attachments/assets/8004d427-fced-40b7-a992-32a8bf973314" />
+
 
 
 
