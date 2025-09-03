@@ -118,9 +118,11 @@ aws --version
 <img width="1908" height="504" alt="KeyPair_Added_SSH" src="https://github.com/user-attachments/assets/0801e6b1-f857-4802-a00f-93ccb0fecae4" />
 
 
-> [!Note]
-> Following tools need to be installed in Master Machine
-> | Tech stack    | Installation |
+#
+> [!Important]
+> Below table showcases Tools need to be installed in the Master Machine.
+
+| Tech stack    | Installation |
 | -------- | ------- |
 | Jenkins Master | Install and configure Jenkins    |
 | eksctl | Install eksctl     |
@@ -129,6 +131,7 @@ aws --version
 | OWASP setup | Install and configure OWASP     |
 | SonarQube | Install and configure SonarQube     |
 
+#
 
 - <b>SSH into the Master Machine:</b>
 
