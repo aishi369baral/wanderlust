@@ -141,7 +141,7 @@ aws --version
 
 #
 
-1. Install & Configure <mark>Docker</mark>by using below command, "NewGrp docker" will refresh the group config hence no need to restart the EC2 machine.
+1. Install & Configure **Docker** by using below command, "NewGrp docker" will refresh the group config hence no need to restart the EC2 machine.
 
 ```bash
 sudo apt-get update
@@ -166,10 +166,10 @@ Check Docker Working
 
 #
 
-2. Install and configure <mark>Jenkins</mark> (Master machine):
+2. Install and configure **Jenkins** (Master machine):
 
 > [!Note]   
-> Install <mark>Java</mark> (Jenkins needs Java)
+> Install **Java** (Jenkins needs Java)
 
 ```bash
 sudo apt update
@@ -211,6 +211,36 @@ Install suggested plugins
 Create your first admin user
 
 Jenkins is ready 🎉
+
+### Creation of EKS Cluster:
+>[!Note]
+>We need to configure aws cli and install kubectl and eksctl in Master Machine
+
+1. Configure **Aws Cli**:
+ ```bash
+  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  sudo apt install unzip
+  unzip awscliv2.zip
+  sudo ./aws/install
+  aws configure
+  ```
+
+ 2. Install **kubectl** 
+  ```bash
+  curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
+  chmod +x ./kubectl
+  sudo mv ./kubectl /usr/local/bin
+  kubectl version --short --client
+  ```
+
+3. Install **eksctl** 
+  ```bash
+  curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+  sudo mv /tmp/eksctl /usr/local/bin
+  eksctl version
+```
+
+
 
 
 
