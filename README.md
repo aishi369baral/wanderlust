@@ -137,6 +137,10 @@ aws --version
 
 #
 
+
+
+
+
 <b>Install & Configure Docker by using below command, "NewGrp docker" will refresh the group config hence no need to restart the EC2 machine.</b>
 
 Update Packages:
