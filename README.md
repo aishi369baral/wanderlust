@@ -119,7 +119,7 @@ aws --version
 #
 
 
-
+#
 <b>SSH into the Master Machine and Open the below ports in security group</b>
 <img width="1900" height="766" alt="Ports_ToBe_Opened_Automate" src="https://github.com/user-attachments/assets/35b2ef7b-1ac6-4e35-bd20-ac7e09417348" />
 
