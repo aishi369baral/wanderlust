@@ -331,7 +331,10 @@ Now the 2 nodes are formed in the cluster:
 kubectl get nodes
 ```
 
+
 #
+
+
 
 
 3. Install **Trivy**:
@@ -345,6 +348,9 @@ sudo apt-get install trivy -y
 
 
 <img width="1370" height="99" alt="trivy_installed" src="https://github.com/user-attachments/assets/ada397b7-5b63-4671-adfa-cd594780eb5b" />
+
+
+#
 
 
 
