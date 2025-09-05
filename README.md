@@ -252,6 +252,10 @@ Jenkins is ready 🎉
   aws configure
   ```
 
+<img width="878" height="155" alt="aws-version_aws-configure" src="https://github.com/user-attachments/assets/a41ad43b-58d5-410c-9a28-7d114b6a8309" />
+
+
+
  2. Install **kubectl** 
   ```bash
   curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
@@ -260,12 +264,22 @@ Jenkins is ready 🎉
   kubectl version --short --client
   ```
 
+
+<img width="1661" height="285" alt="kubectl_installed" src="https://github.com/user-attachments/assets/e83eeaa2-b739-40cf-9735-90c97fe7dc0d" />
+
+
+
 3. Install **eksctl** 
   ```bash
   curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
   sudo mv /tmp/eksctl /usr/local/bin
   eksctl version
 ```
+
+
+<img width="1910" height="164" alt="eksctl_installed" src="https://github.com/user-attachments/assets/fe2e4012-3d43-43db-9346-2ffdd6a44899" />
+
+
 
 >[!Note]
 >Before creating the cluster check in Cloud Formation if there is any pre-existing cluster with the same name.
@@ -278,6 +292,11 @@ Jenkins is ready 🎉
                       --version=1.30 \
                       --without-nodegroup
   ```
+
+<img width="1456" height="161" alt="EKS_Cluster_Created_WithOutNodes" src="https://github.com/user-attachments/assets/ddef7f17-fc2c-4a6c-91fe-5b9e249d7e8e" />
+
+
+
   - <b>Associate IAM OIDC Provider (Master machine)</b>
   ```bash
   eksctl utils associate-iam-oidc-provider \
@@ -285,6 +304,11 @@ Jenkins is ready 🎉
     --cluster wanderlust \
     --approve
   ```
+
+<img width="1880" height="211" alt="IAM_OIDC_Provider" src="https://github.com/user-attachments/assets/87df34b4-d79f-4168-bf79-4fa6a681cde3" />
+
+
+
   - <b>Create Nodegroup (Master machine)</b>
   ```bash
   eksctl create nodegroup --cluster=wanderlust \
@@ -298,6 +322,10 @@ Jenkins is ready 🎉
                        --ssh-access \
                        --ssh-public-key=eks-nodegroup-key 
   ```
+
+<img width="1486" height="161" alt="added_nodeGroups_to_cluster" src="https://github.com/user-attachments/assets/e39f2009-4f6d-4f83-a65a-13f955d539a0" />
+
+
 Now the 2 nodes are formed in the cluster:
 ```bash
 kubectl get nodes
@@ -313,17 +341,40 @@ sudo apt-get update -y
 sudo apt-get install trivy -y
 ```
 
+
+<img width="1370" height="99" alt="trivy_installed" src="https://github.com/user-attachments/assets/ada397b7-5b63-4671-adfa-cd594780eb5b" />
+
+
+
 4. Install and Configure **SonarQube** Server: 
 ```bash
 docker run -itd --name SonarQube-Server -p 9000:9000 sonarqube:lts-community
 ```
+
+<img width="1370" height="368" alt="Sonar-qube_installed" src="https://github.com/user-attachments/assets/4cdb0985-8411-4455-83ff-79da0f491f86" />
+
+
 Access SonarQube Server UI:
 
 Open browser: http://<your-server-ip>:9000
 
+
+<img width="1902" height="864" alt="Sonar-qube_login" src="https://github.com/user-attachments/assets/5d4e47f5-b2b3-4787-bc47-08e9a9f86b30" />
+
+
+
 intial username: admin
 
 initial password: admin
+
+Sonar Qube server is ready 🎉
+
+
+<img width="1908" height="978" alt="Sonar-qube_welcome" src="https://github.com/user-attachments/assets/62a73df7-abc6-4b7d-ade9-63edf15a84b5" />
+
+
+#
+
 
 5. Install the following Jenkins plugins:
 
