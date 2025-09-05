@@ -117,6 +117,8 @@ aws --version
 <img width="1908" height="924" alt="SecurityGroup(allow TLS)Added_WithPortsOpened_Ingress" src="https://github.com/user-attachments/assets/5a5cf907-dffb-46b8-a7f5-ee302e48fa25" />
 <img width="1908" height="504" alt="KeyPair_Added_SSH" src="https://github.com/user-attachments/assets/0801e6b1-f857-4802-a00f-93ccb0fecae4" />
 
+<b>SSH into the Master Machine and Open the below ports in security group</b>
+<img width="1900" height="766" alt="Ports_ToBe_Opened_Automate" src="https://github.com/user-attachments/assets/35b2ef7b-1ac6-4e35-bd20-ac7e09417348" />
 
 #
 > [!Important]
@@ -124,6 +126,8 @@ aws --version
 
 | Tech stack    | Installation |
 | -------- | ------- |
+| Docker | Install docker |
+| Java | Install java |
 | Jenkins Master | Install and configure Jenkins    |
 | eksctl | Install eksctl     |
 | Argocd | Install and configure ArgoCD     |
@@ -133,75 +137,27 @@ aws --version
 
 #
 
-- <b>SSH into the Master Machine:</b>
-
-
-
-
-
-
-
-
-
-
-#
-- <b>Open the below ports in security group of master machine</b>
-<img width="1900" height="766" alt="Ports_ToBe_Opened_Automate" src="https://github.com/user-attachments/assets/35b2ef7b-1ac6-4e35-bd20-ac7e09417348" />
-
-
-Install & Configure Docker by using below command, "NewGrp docker" will refresh the group config hence no need to restart the EC2 machine.
+<b>Install & Configure Docker by using below command, "NewGrp docker" will refresh the group config hence no need to restart the EC2 machine.</b>
 
 Update Packages:
 ```bash
 sudo apt-get update
-```
-
-Install dependencies
-```bash
 sudo apt-get install -y ca-certificates curl gnupg lsb-release
-```
-
-Add Docker’s official GPG key
-```bash
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-```
-
-Set up Docker repository
-```bash
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
   https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-```
-
-Update package index again
-```bash
 sudo apt-get update
-```
-
-Install Docker Engine, CLI, and containerd
-```bash
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
-
-Verify Docker installation
-```bash
 docker --version
-```
-
-Verify Docker Compose installation
-```bash
 docker compose version
-```
-
-Add $USER to the docker group and update the group
-```bash
 sudo usermod -aG docker $USER && newgrp docker
 ```
 
-<b>Check Docker Working</b>
+Check Docker Working
 
 <img width="1152" height="648" alt="dockerWorking_properly" src="https://github.com/user-attachments/assets/8004d427-fced-40b7-a992-32a8bf973314" />
 #
