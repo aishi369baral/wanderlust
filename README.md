@@ -673,6 +673,8 @@ sudo systemctl restart jenkins
 
 - <b>CI CD Pipeline Console Output Text File</b>
 
+wanderlust/CI_CD_Console_Output.txt
+
 
 - <b>OWASP Dependency-check Result</b>
 
@@ -788,11 +790,18 @@ kubectl get secret --namespace prometheus stable-grafana -o jsonpath="{.data.adm
 eksctl delete cluster --name=wanderlust --region=us-west-1
 ```
 
+<img width="1583" height="582" alt="Cluster_deleted" src="https://github.com/user-attachments/assets/6e5431df-2da9-409a-a97f-0ee8edc3a191" />
+
+
 - <b> terminate the Master Machine</b>
 Go to local and cd into terraform folder and run:
 ```bash
 terraform destroy
 ```
+
+<img width="1456" height="369" alt="terraform_destroy" src="https://github.com/user-attachments/assets/88cdab15-3514-4923-8e55-8c206e14fae5" />
+
+
 #
 
 
