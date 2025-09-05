@@ -1,0 +1,174 @@
+Started by upstream project "Wanderlust-CI" build number 15
+originally caused by:
+ Started by user admin
+Loading library Shared@master
+Attempting to resolve master from remote references...
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git ls-remote -h -- https://github.com/aishi369baral/Jenkins_SharedLib.git # timeout=10
+Found match: refs/heads/master revision f3b67e2bff153d53d0ffa747bb8ddf062b0ea120
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning with configured refspecs honoured and without tags
+Cloning repository https://github.com/aishi369baral/Jenkins_SharedLib.git
+ > git init /var/lib/jenkins/workspace/Wanderlust-CD@libs/bcf03f0e9339a4d11f99cf3d85b41f86a74afe6bd101d8e65a144b9b9be22506 # timeout=10
+Fetching upstream changes from https://github.com/aishi369baral/Jenkins_SharedLib.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --no-tags --force --progress -- https://github.com/aishi369baral/Jenkins_SharedLib.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/aishi369baral/Jenkins_SharedLib.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+Checking out Revision f3b67e2bff153d53d0ffa747bb8ddf062b0ea120 (master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f3b67e2bff153d53d0ffa747bb8ddf062b0ea120 # timeout=10
+Commit message: "Update docker_push.groovy"
+First time build. Skipping changelog.
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/Wanderlust-CD
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Workspace cleanup)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] cleanWs
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] done
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Git: Code Checkout)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/aishi369baral/wanderlust.git
+ > git init /var/lib/jenkins/workspace/Wanderlust-CD # timeout=10
+Fetching upstream changes from https://github.com/aishi369baral/wanderlust.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/aishi369baral/wanderlust.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/aishi369baral/wanderlust.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/devsecops-setup^{commit} # timeout=10
+Checking out Revision 77abb5eca0dc5ba642689c719205c9f009203cb8 (refs/remotes/origin/devsecops-setup)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 77abb5eca0dc5ba642689c719205c9f009203cb8 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b devsecops-setup 77abb5eca0dc5ba642689c719205c9f009203cb8 # timeout=10
+Commit message: "Create .env.docker"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Verify: Docker Image Tags)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+FRONTEND_DOCKER_TAG: v1
+[Pipeline] echo
+BACKEND_DOCKER_TAG: v1
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Update: Kubernetes manifests)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/Wanderlust-CD/kubernetes
+[Pipeline] {
+[Pipeline] sh
++ sed -i -e s/wanderlust-backend-beta.*/wanderlust-backend-beta:v1/g backend.yaml
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/Wanderlust-CD/kubernetes
+[Pipeline] {
+[Pipeline] sh
++ sed -i -e s/wanderlust-frontend-beta.*/wanderlust-frontend-beta:v1/g frontend.yaml
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Git: Code update and push to GitHub)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] withCredentials
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+Masking supported pattern matches of $GIT_PASSWORD or $GIT_ASKPASS
+[Pipeline] {
+[Pipeline] sh
++ echo Checking repository status: 
+Checking repository status: 
++ git status
+On branch devsecops-setup
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   kubernetes/backend.yaml
+	modified:   kubernetes/frontend.yaml
+
+no changes added to commit (use "git add" and/or "git commit -a")
++ echo Adding changes to git: 
+Adding changes to git: 
++ git add .
++ echo Commiting changes: 
+Commiting changes: 
++ git commit -m Updated environment variables
+[devsecops-setup db5e392] Updated environment variables
+ Committer: Jenkins <jenkins@ip-172-31-15-54.us-east-2.compute.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 2 files changed, 2 insertions(+), 2 deletions(-)
++ echo Pushing changes to github: 
+Pushing changes to github: 
++ git push https://github.com/aishi369baral/wanderlust.git devsecops-setup
+To https://github.com/aishi369baral/wanderlust.git
+   77abb5e..db5e392  devsecops-setup -> devsecops-setup
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] emailext
+Sending email to: aishi369baral@gmail.com
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
