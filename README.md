@@ -54,7 +54,7 @@ WanderLust is a simple MERN travel blog website ✈
 | Clean Up | Clean up    |
 #
 
-### Pre-requisites to implement this project:
+### Master Machine Creation :
 #
 
 > [!Note]
@@ -120,9 +120,10 @@ aws --version
 
 
 #
-<b>SSH into the Master Machine and Open the below ports in security group</b>
+### Open the below ports in security group in Master Machine:
 <img width="1900" height="766" alt="Ports_ToBe_Opened_Automate" src="https://github.com/user-attachments/assets/35b2ef7b-1ac6-4e35-bd20-ac7e09417348" />
 
+### SSH into the Master Machine and install the following in it:
 #
 > [!Important]
 > Below table showcases Tools need to be installed in the Master Machine.
@@ -141,9 +142,8 @@ aws --version
 #
 
 
-<b>Install & Configure Docker by using below command, "NewGrp docker" will refresh the group config hence no need to restart the EC2 machine.</b>
+1. Install & Configure Docker by using below command, "NewGrp docker" will refresh the group config hence no need to restart the EC2 machine.
 
-Update Packages:
 ```bash
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg lsb-release
@@ -166,37 +166,25 @@ Check Docker Working
 <img width="1152" height="648" alt="dockerWorking_properly" src="https://github.com/user-attachments/assets/8004d427-fced-40b7-a992-32a8bf973314" />
 #
 
-- <b id="Jenkins">Install and configure Jenkins (Master machine)</b>
+2. Install and configure Jenkins (Master machine):
 
-Install Java (Jenkins needs Java)
+> [!Note]   
+> Install Java (Jenkins needs Java)
+
 ```bash
 sudo apt update
 sudo apt install -y fontconfig openjdk-17-jdk
 java -version
-```
 
-Add Jenkins repository and install
-Add Jenkins key
-```bash
 curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
-```
 
-Add Jenkins repo
-```bash
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   https://pkg.jenkins.io/debian-stable binary/ | \
   sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
-```
 
-Update and install Jenkins
-```bash
 sudo apt update
 sudo apt install -y jenkins
-```
-
-Start and enable Jenkins
-```bash
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
 sudo systemctl status jenkins
@@ -212,13 +200,11 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 👉 Copy this password.
 
-Access Jenkins UI
+Access Jenkins UI:
 
 Open browser: http://<your-server-ip>:8080
-Paste the password from Step 5
-
+Paste the password
 Install suggested plugins
-
 Create your first admin user
 
 Jenkins is ready 🎉
