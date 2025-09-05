@@ -162,7 +162,8 @@ sudo usermod -aG docker $USER && newgrp docker
 
 Check Docker Working
 
-<img width="1152" height="648" alt="dockerWorking_properly" src="https://github.com/user-attachments/assets/8004d427-fced-40b7-a992-32a8bf973314" />
+<img width="1033" height="119" alt="dockerWorking_properly" src="https://github.com/user-attachments/assets/2392d8a8-4152-4eda-b022-c1cd358590f2" />
+
 #
 
 2. Install and configure Jenkins (Master machine):
