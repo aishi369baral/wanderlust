@@ -214,7 +214,7 @@ Jenkins is ready 🎉
 
 ### Creation of EKS Cluster:
 >[!Note]
->We need to configure aws cli and install kubectl and eksctl in Master Machine
+>We need to configure aws cli and install kubectl and eksctl in Master Machine before creating the cluster
 
 1. Configure **Aws Cli**:
  ```bash
@@ -239,6 +239,39 @@ Jenkins is ready 🎉
   sudo mv /tmp/eksctl /usr/local/bin
   eksctl version
 ```
+
+>[!Note]
+>Before creating the cluster check in Cloud Formation if there is any pre-existing cluster with the same name.
+>Make sure the ssh-public-key "eks-nodegroup-key is available in your aws account"
+
+  - <b>Create EKS Cluster (Master machine)</b>
+  ```bash
+  eksctl create cluster --name=wanderlust \
+                      --region=us-east-2 \
+                      --version=1.30 \
+                      --without-nodegroup
+  ```
+  - <b>Associate IAM OIDC Provider (Master machine)</b>
+  ```bash
+  eksctl utils associate-iam-oidc-provider \
+    --region us-east-2 \
+    --cluster wanderlust \
+    --approve
+  ```
+  - <b>Create Nodegroup (Master machine)</b>
+  ```bash
+  eksctl create nodegroup --cluster=wanderlust \
+                       --region=us-east-2 \
+                       --name=wanderlust \
+                       --node-type=t2.large \
+                       --nodes=2 \
+                       --nodes-min=2 \
+                       --nodes-max=2 \
+                       --node-volume-size=29 \
+                       --ssh-access \
+                       --ssh-public-key=eks-nodegroup-key 
+  ```
+
 
 
 
