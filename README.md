@@ -408,43 +408,85 @@ Sonar Qube server is ready 🎉
 
   - <b>Search for <mark>App password</mark> and create a app password for jenkins</b>
 
-  
-#
+  <img width="1900" height="762" alt="Gmail_AppPassword_Created" src="https://github.com/user-attachments/assets/9c0b2cb8-457e-41f2-acda-b31abdb1c26c" />
+
+
 - <b> Once, app password is create and go back to jenkins <mark>Manage Jenkins --> Credentials</mark> to add username and password for email notification</b>
 
+<img width="1907" height="432" alt="Jenkins_Global_Credentials" src="https://github.com/user-attachments/assets/b8cbe684-596b-4d22-9c7f-250ab7070196" />
 
-# 
+
+
 - <b> Go back to <mark>Manage Jenkins --> System</mark> and search for <mark>Extended E-mail Notification</mark></b>
+
+<img width="1881" height="957" alt="ExtendedEmailNotification" src="https://github.com/user-attachments/assets/b57ab362-7591-401a-817e-8ec403325690" />
+
+
+#
 
 
 ### OWASP Dependency-Check installation:
 After OWASP plugin is installed, Now move to <mark>Manage jenkins --> Tools</mark>
 
 
+<img width="1850" height="867" alt="owasp_dependencycheck" src="https://github.com/user-attachments/assets/6be792e8-0cdd-4047-ab80-651b39930340" />
+
+
+#
+
 
 ### Integrate SonarQube to Jenkins: via Tokens
 - <b>Login to SonarQube server and create the credentials for jenkins to integrate with SonarQube</b>
   - Navigate to <mark>Administration --> Security --> Users --> Token</mark>
+## Generate a token:
+
+<img width="1768" height="549" alt="SonarQube_GenerateToken" src="https://github.com/user-attachments/assets/8c650f23-220e-425d-b925-0fd1c47720a3" />
+
+## Token generated:
+
+<img width="1897" height="946" alt="SonarQube_administrator_Token" src="https://github.com/user-attachments/assets/239cb99c-0ff1-47fc-b435-e5140a855b2c" />
 
 
-  #
+  
 - <b>Now, go to <mark> Manage Jenkins --> credentials</mark> and add Sonarqube credentials:</b>
 
 
 - <b>Go to <mark> Manage Jenkins --> Tools</mark> and search for SonarQube Scanner installations:</b>
 
+
+<img width="1877" height="781" alt="SonarQube_Scanner_Installation" src="https://github.com/user-attachments/assets/8956cd59-262c-49ee-9798-3f29f7095504" />
+
+
+
 - <b>Go to <mark> Manage Jenkins --> System</mark> and search for SonarQube installations:</b>
+
+
+<img width="1855" height="962" alt="SonarQube_installation" src="https://github.com/user-attachments/assets/d3527410-4056-4fad-8166-3d6085c9b2e7" />
+
+
+
 
 >[!Note]
 > SonarQube will hit Jenkins to reply back after a job is complete hence we will need a webhook
 
 - <b>Login to SonarQube server, go to <mark>Administration --> Webhook</mark> and click on create </b>
 
+
+<img width="1917" height="968" alt="SonarQube_Webhook_Created" src="https://github.com/user-attachments/assets/5112783d-49cc-4861-a269-2de5a983a0ca" />
+
+
+
 Hence SonarQube must have the Jenkins URL http://<your-server-ip>:9000 to send a reply back to Jenkins on job completion.
     
 #
+
+
 ### Jenkins needs Personal Access Token of your Github account to push the updated code in Github Repository: 
 - <b> Create Personal Access Token in Github Account:</b>
+
+
+<img width="1914" height="802" alt="github_PersonalAccessToken" src="https://github.com/user-attachments/assets/d53e3570-5ef9-4341-a9bc-03e5dbf3ad2c" />
+
 
 - <b> Go to <mark> Manage Jenkins --> credentials</mark> and add Github Personal Access Token to push updated code from the pipeline:</b>
 
@@ -456,15 +498,42 @@ Hence SonarQube must have the Jenkins URL http://<your-server-ip>:9000 to send a
 ### Telling jenkins to  use Shared Library:
 - <b> Go to <mark> Manage Jenkins --> System</mark> and search for Global Trusted Pipeline Libraries:</b>
 
+<img width="1910" height="975" alt="GlobalTrustedLibraries_SharedLibrary" src="https://github.com/user-attachments/assets/2d8c7e8d-f631-4312-a6f1-ad79bd38f322" />
+
+
+<img width="1717" height="748" alt="GlobalTrustedLibraries_SharedLibrary2" src="https://github.com/user-attachments/assets/18364d8f-75ed-432d-aea4-34c5e751aad4" />
+
+
+#
+
+
+
 ### Add Docker Hub credentials to Jenkins so that it can push built images:
+
+- <b>Create a Access Token in Docker Hub and add it to Jenkins Global Credentials, this will allow Jenkins to push Images to Docker Hub
+
+<img width="1914" height="950" alt="Docker-Hub_PersonalAccessToken" src="https://github.com/user-attachments/assets/cfae16d6-d90c-4813-b02c-6624219c8678" />
+
+
+
 - <b>Navigate to <mark> Manage Jenkins --> credentials</mark> and add credentials for docker login to push docker image:</b>
 
+#
 
 
 ### Create IAM Role for our Master Machine:
 - <b>Go to IAM --> Roles --> Create Role </b>
 
+<img width="1914" height="807" alt="IAM_role_Created_for_EC2" src="https://github.com/user-attachments/assets/c3260572-2c97-410f-917a-1d116f489816" />
+
+
+
 - <b>Attach the IAM Role to the Master Machine</b>
+
+<img width="1902" height="851" alt="IAM_role_Attached_to_Automate" src="https://github.com/user-attachments/assets/fdb47832-4c43-4a83-a193-6642a79fde2e" />
+
+#
+
 
 ### Provide Jenkins permission to docker socket so that docker build and push command do not fail
 ```bash
@@ -473,11 +542,8 @@ sudo systemctl restart jenkins
 ```
 
 
-### Create CI CD Pipeline:
-- <b>Create a <mark>Wanderlust-CI</mark> pipeline</b>
 
-#
-- <b>Create one more pipeline <mark>Wanderlust-CD</mark></b>
+
 
 ### Install and Configure Argo CD :
 - <b id="Argo">Install and Configure ArgoCD (Master Machine)</b>
@@ -575,8 +641,48 @@ sudo systemctl restart jenkins
 <worker-public-ip>:31000
 ```
 
-### Email Confirmation that the app has been deployed:
-- <b>Email Notification</b>
+
+### Create CI CD Pipeline:
+- <b>Create a <mark>Wanderlust-CI</mark> pipeline</b>
+<img width="1914" height="946" alt="CI_CD_Pipeline_Created" src="https://github.com/user-attachments/assets/b00e6019-df79-4e73-81bd-f7d16bc8605e" />
+
+
+- <b>Run the CI Pipeline with Parameters</b>
+<img width="1900" height="976" alt="BuildWithParameters_CI_Pipeline" src="https://github.com/user-attachments/assets/223c98ea-26e3-4a63-8c60-a835ee5a82ca" />
+
+
+- <b> CI Pipeline Passed 🎉
+- <img width="1911" height="987" alt="CI_Full_StageView" src="https://github.com/user-attachments/assets/ed195c88-748e-4538-9f49-17d2646716b9" />
+
+
+
+- <b>Create one more pipeline <mark>Wanderlust-CD</mark></b>
+<img width="1914" height="946" alt="CI_CD_Pipeline_Created" src="https://github.com/user-attachments/assets/8b2f98ac-442d-479d-822b-37374000e61c" />
+
+
+- <b>Run the CI Pipeline with Parameters</b>
+- <b> CI Pipeline Passed 🎉
+
+  <img width="1916" height="949" alt="CD_Passed" src="https://github.com/user-attachments/assets/cb29efc7-986a-4b7d-9ec2-cb3d60a72db7" />
+
+
+- <b>On Successfull Passing of CI CD Pipeline and Successfull deployment of the App, Email Notification is sent:</b>
+
+<img width="1906" height="954" alt="App_Deployment_Success_mail" src="https://github.com/user-attachments/assets/8aea3c6f-8e58-429c-bf16-489ea64069d7" />
+
+
+- <b>CI CD Pipeline Console Output Text File</b>
+
+
+- <b>OWASP Dependency-check Result</b>
+
+<img width="1855" height="969" alt="Dependency_Check_Result" src="https://github.com/user-attachments/assets/01e1ee84-8870-4039-a13f-812e9d52e6b7" />
+
+
+#
+
+
+
 
 
 #
