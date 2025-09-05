@@ -96,7 +96,7 @@ aws --version
    ```
    <img width="1470" height="779" alt="ssh-keygen" src="https://github.com/user-attachments/assets/02f7f669-9d12-44a7-9ca7-c677cf5a1427" />
 > [!Note]   
-> Upadte the public key location in the ec2.tf file
+> Update the public key location in the ec2.tf file
 
 7. Run the following commands:
    ```bash
