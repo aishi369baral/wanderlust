@@ -141,7 +141,6 @@ aws --version
 
 #
 
-
 1. Install & Configure Docker by using below command, "NewGrp docker" will refresh the group config hence no need to restart the EC2 machine.
 
 ```bash
@@ -164,6 +163,7 @@ sudo usermod -aG docker $USER && newgrp docker
 Check Docker Working
 
 <img width="1152" height="648" alt="dockerWorking_properly" src="https://github.com/user-attachments/assets/8004d427-fced-40b7-a992-32a8bf973314" />
+#
 
 2. Install and configure Jenkins (Master machine):
 
