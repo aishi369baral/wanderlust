@@ -193,8 +193,13 @@ sudo systemctl start jenkins
 sudo systemctl enable jenkins
 sudo systemctl status jenkins
 ```
+<img width="1324" height="100" alt="java_installed" src="https://github.com/user-attachments/assets/da642ead-ecd3-4273-97d7-d02291838f76" />
+
+<img width="1898" height="541" alt="Jenkins_Status_Running" src="https://github.com/user-attachments/assets/0721b0c3-43c8-49e8-9802-84c406f8f576" />
+
 
 Open Firewall (port 8080 for Jenkins UI)
+<img width="1906" height="750" alt="Jenkins_Port_Openned_8080" src="https://github.com/user-attachments/assets/ecc50fd6-c60e-43f2-9417-f943b1beefe7" />
 
 
 Get Initial Admin Password
@@ -207,14 +212,20 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 Access Jenkins UI:
 
 Open browser: http://<your-server-ip>:8080
+<img width="1911" height="967" alt="Run_Jenkins_Browser_unlock_it" src="https://github.com/user-attachments/assets/0c14ba72-139e-4720-a97a-097cc85565e9" />
 
 Paste the password
 
 Install suggested plugins
 
+<img width="1918" height="967" alt="Jenkins_installSuggestedPlugins" src="https://github.com/user-attachments/assets/5029d5e4-9efd-41c7-925b-c5ec6863ec4b" />
+
+
 Create your first admin user
 
 Jenkins is ready 🎉
+<img width="1908" height="960" alt="Jenkins_Welcome_Window" src="https://github.com/user-attachments/assets/30198521-bd35-476c-9d02-1ac2302fe1ef" />
+
 
 ### Creation of EKS Cluster:
 >[!Note]
