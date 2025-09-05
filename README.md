@@ -116,6 +116,9 @@ aws --version
 <img width="1906" height="966" alt="MasterMachine(Automate)_created" src="https://github.com/user-attachments/assets/ee4dd6d7-f1ba-4cc0-8c24-f989f05c65ea" />
 <img width="1908" height="924" alt="SecurityGroup(allow TLS)Added_WithPortsOpened_Ingress" src="https://github.com/user-attachments/assets/5a5cf907-dffb-46b8-a7f5-ee302e48fa25" />
 <img width="1908" height="504" alt="KeyPair_Added_SSH" src="https://github.com/user-attachments/assets/0801e6b1-f857-4802-a00f-93ccb0fecae4" />
+#
+
+
 
 <b>SSH into the Master Machine and Open the below ports in security group</b>
 <img width="1900" height="766" alt="Ports_ToBe_Opened_Automate" src="https://github.com/user-attachments/assets/35b2ef7b-1ac6-4e35-bd20-ac7e09417348" />
@@ -136,9 +139,6 @@ aws --version
 | SonarQube | Install and configure SonarQube     |
 
 #
-
-
-
 
 
 <b>Install & Configure Docker by using below command, "NewGrp docker" will refresh the group config hence no need to restart the EC2 machine.</b>
