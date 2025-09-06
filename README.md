@@ -551,6 +551,10 @@ sudo systemctl restart jenkins
   ```bash
   kubectl create namespace argocd
   ```
+
+<img width="1660" height="161" alt="argocd_namespace_created" src="https://github.com/user-attachments/assets/4baff4c2-fbc0-4928-8b34-74ccc5c86c8c" />
+
+
   - <b>Apply argocd manifest</b>
   ```bash
   kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
@@ -559,6 +563,10 @@ sudo systemctl restart jenkins
   ```bash
   watch kubectl get pods -n argocd
   ```
+
+<img width="1913" height="334" alt="Make_sure_pods_running_in_argocd_namespace" src="https://github.com/user-attachments/assets/1b7da380-8ad1-4e0a-9471-a214f4a2e516" />
+
+
   - <b>Install argocd CLI</b>
   ```bash
   sudo curl --silent --location -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/v2.4.7/argocd-linux-amd64
@@ -571,6 +579,10 @@ sudo systemctl restart jenkins
   ```bash
   kubectl get svc -n argocd
   ```
+
+<img width="1909" height="265" alt="argocd_services" src="https://github.com/user-attachments/assets/84ca1fef-bc82-4c97-9f81-c8ef09cb8f73" />
+
+
   - <b>Change argocd server's service from ClusterIP to NodePort</b>
   ```bash
   kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
@@ -579,12 +591,22 @@ sudo systemctl restart jenkins
   ```bash
   kubectl get svc -n argocd
   ```
+
+<img width="1633" height="556" alt="argocd_ArgocdServer_servicetype_patched" src="https://github.com/user-attachments/assets/3133add9-2598-4fa1-b0de-e5f8bfa9b0b7" />
+
+
   - <b> Check the port where ArgoCD server is running and expose it on security groups of a worker node</b>
+
+<img width="1863" height="842" alt="Argocd_Port_Opened_Node1" src="https://github.com/user-attachments/assets/4b3a10eb-db08-4f47-a1fc-aa1dc76412d6" />
+
 
   - <b>Access it on browser, click on advance and proceed with</b>
   ```bash
   <public-ip-node>:<port>
   ```
+
+<img width="1909" height="968" alt="Argocd_Browser" src="https://github.com/user-attachments/assets/9db44a06-ccb4-4d77-97c7-36c68797774c" />
+
 
   - <b>Fetch the initial password of argocd server</b>
   ```bash
@@ -607,11 +629,16 @@ sudo systemctl restart jenkins
   ```bash
    argocd login   <public-ip-node>:32738 --username admin
   ```
+<img width="1886" height="238" alt="Argocd_login_from_CLI" src="https://github.com/user-attachments/assets/ba6e4dda-4ab7-430b-9db3-607260d02c73" />
+
 
   - <b>Check how many clusters are available in argocd </b>
   ```bash
   argocd cluster list
   ```
+
+<img width="1739" height="161" alt="Argocd_cluster_list" src="https://github.com/user-attachments/assets/72c46db9-9820-4e02-971b-701f62da5323" />
+
 
   - <b>Get your cluster name</b>
   ```bash
@@ -623,8 +650,13 @@ sudo systemctl restart jenkins
   ```
   > [!Tip]
   > Wanderlust@wanderlust.us-west-1.eksctl.io --> This should be your EKS Cluster Name.
+<img width="1910" height="235" alt="Argocd_add_cluster" src="https://github.com/user-attachments/assets/22611b90-e3ca-4df7-b646-d01dee6f5f75" />
 
   - <b> Once your cluster is added to argocd, go to argocd console <mark>Settings --> Clusters</mark> and verify it</b>
+<img width="1906" height="945" alt="cluster_Added_to_Argocd" src="https://github.com/user-attachments/assets/0fb2bab2-1675-43d2-a0f6-ee54efd277c2" />
+
+#
+
 
 ### Add a new App in Argo CD:
 
@@ -636,10 +668,11 @@ sudo systemctl restart jenkins
 
 - <b>Congratulations, your application is deployed on AWS EKS Cluster</b>
 
-- <b>Open port 31000 and 31100 on worker node and Access it on browser</b>
+- <b>Open port 31000 and 31100 on worker node security group and Access it on browser</b>
 ```bash
 <worker-public-ip>:31000
 ```
+<img width="1908" height="950" alt="Wanderlust_Deployed_RunningSuccessfully" src="https://github.com/user-attachments/assets/8a1459a5-97cd-44aa-9524-599866df7cd4" />
 
 
 ### Create CI CD Pipeline:
