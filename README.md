@@ -669,6 +669,10 @@ sudo systemctl restart jenkins
 - <b>Congratulations, your application is deployed on AWS EKS Cluster</b>
 
 - <b>Open port 31000 and 31100 on worker node security group and Access it on browser</b>
+
+<img width="1897" height="873" alt="Frontend_Backend_Ports_opened" src="https://github.com/user-attachments/assets/570032b0-11d9-4b28-a6cb-f43edc64bbe0" />
+
+
 ```bash
 <worker-public-ip>:31000
 ```
@@ -683,9 +687,16 @@ sudo systemctl restart jenkins
 - <b>Run the CI Pipeline with Parameters</b>
 <img width="1900" height="976" alt="BuildWithParameters_CI_Pipeline" src="https://github.com/user-attachments/assets/223c98ea-26e3-4a63-8c60-a835ee5a82ca" />
 
+- <b>Frontend and Backend image is Pushed to Docker Hub when CI Pipeline is run by Jenkins:</b>
+<img width="1900" height="845" alt="Frontend_Backend_imgPushed_DockerHub" src="https://github.com/user-attachments/assets/6de40b48-f645-4d09-8bbe-6eebde5e79ab" />
+
 
 - <b> CI Pipeline Passed 🎉
 - <img width="1911" height="987" alt="CI_Full_StageView" src="https://github.com/user-attachments/assets/ed195c88-748e-4538-9f49-17d2646716b9" />
+
+- <b>OWASP Dependency-check Result</b>
+
+<img width="1855" height="969" alt="Dependency_Check_Result" src="https://github.com/user-attachments/assets/01e1ee84-8870-4039-a13f-812e9d52e6b7" />
 
 
 
@@ -693,8 +704,8 @@ sudo systemctl restart jenkins
 <img width="1914" height="946" alt="CI_CD_Pipeline_Created" src="https://github.com/user-attachments/assets/8b2f98ac-442d-479d-822b-37374000e61c" />
 
 
-- <b>Run the CI Pipeline with Parameters</b>
-- <b> CI Pipeline Passed 🎉
+- <b>Run the CD Pipeline with Parameters</b>
+- <b> CD Pipeline Passed 🎉
 
   <img width="1916" height="949" alt="CD_Passed" src="https://github.com/user-attachments/assets/cb29efc7-986a-4b7d-9ec2-cb3d60a72db7" />
 
@@ -709,9 +720,28 @@ sudo systemctl restart jenkins
 wanderlust/CI_CD_Console_Output.txt
 
 
-- <b>OWASP Dependency-check Result</b>
+- <b>The Deployed Application</b>
 
-<img width="1855" height="969" alt="Dependency_Check_Result" src="https://github.com/user-attachments/assets/01e1ee84-8870-4039-a13f-812e9d52e6b7" />
+
+<img width="1908" height="950" alt="Wanderlust_Deployed_RunningSuccessfully" src="https://github.com/user-attachments/assets/70b19b34-f555-4888-87b7-6f8306a7fd14" />
+
+
+<img width="1902" height="973" alt="Wanderlust_App_light_Theme" src="https://github.com/user-attachments/assets/132d524c-63c3-4374-b916-4437e7fd36ad" />
+
+- <b>Create new post in the Application:</b>
+
+
+<img width="1906" height="979" alt="Sweden" src="https://github.com/user-attachments/assets/0d6dbaa5-d653-4107-8cc4-5325e5f0ee91" />
+<img width="1898" height="994" alt="App_Create_Post" src="https://github.com/user-attachments/assets/cc9d8b51-c550-4aaf-8607-c85f361713b6" />
+
+
+- <b>New post:</b>
+
+<img width="1910" height="964" alt="Sweden_post" src="https://github.com/user-attachments/assets/c97ad276-75f7-4df2-b0e4-9343303b472d" />
+<img width="1912" height="961" alt="BlogPost_Created" src="https://github.com/user-attachments/assets/31c8818f-3cef-424a-b638-9a8b50415960" />
+
+- <b>Argo CD pods are running properly:</b>
+<img width="1905" height="961" alt="App_Status_Argocd" src="https://github.com/user-attachments/assets/9a1a73c7-0c19-4ae7-b7ee-849f41b500bb" />
 
 
 #
@@ -720,7 +750,7 @@ wanderlust/CI_CD_Console_Output.txt
 
 
 
-#
+
 ## How to monitor EKS cluster, kubernetes components and workloads using prometheus and grafana via HELM (On Master machine)
 
 - <p id="Monitor">Install Helm Chart</p>
@@ -766,6 +796,10 @@ helm install stable prometheus-community/kube-prometheus-stack -n prometheus
 ```bash
 kubectl get pods -n prometheus
 ```
+<img width="1456" height="218" alt="prometheus-installed" src="https://github.com/user-attachments/assets/825dcf4f-7874-46e8-a7f2-c4b5bb8d3dd6" />
+
+
+
 
 #
 - Check the services file (svc) of the Prometheus
@@ -781,8 +815,8 @@ kubectl get svc -n prometheus
 ```bash
 kubectl edit svc stable-kube-prometheus-sta-prometheus -n prometheus
 ```
-![image](https://github.com/user-attachments/assets/90f5dc11-23de-457d-bbcb-944da350152e)
-![image](https://github.com/user-attachments/assets/ed94f40f-c1f9-4f50-a340-a68594856cc7)
+<img width="1456" height="951" alt="prometheus_servicetype_changed" src="https://github.com/user-attachments/assets/51b9d1a3-a924-4615-8fca-34044ba99f67" />
+
 
 #
 - Verify service
@@ -795,7 +829,7 @@ kubectl get svc -n prometheus
 ```bash
 kubectl edit svc stable-grafana -n prometheus
 ```
-![image](https://github.com/user-attachments/assets/4a2afc1f-deba-48da-831e-49a63e1a8fb6)
+
 
 #
 - Check grafana service
@@ -812,7 +846,25 @@ kubectl get secret --namespace prometheus stable-grafana -o jsonpath="{.data.adm
 > Username: admin
 
 #
-- Now, view the Dashboard in Grafana
+- Open Ports for Prometheus and Grafana in security group of Worker Node
+  <img width="1880" height="720" alt="Prometheus_Grafana_ports_opened" src="https://github.com/user-attachments/assets/5ce12954-06b0-4377-8687-6b41c7d0f95c" />
+
+- Access Prometheus in Browser:
+  <img width="1901" height="955" alt="prometheus_browser" src="https://github.com/user-attachments/assets/64242d9d-70e8-4303-8459-06e6a742a4b3" />
+
+- Access Grafana in Browser and log in using the previously acquired password:
+  <img width="1907" height="979" alt="Grafana_browser" src="https://github.com/user-attachments/assets/cd2d5c29-ab98-46d1-8c37-e9000fcbf34b" />
+- Grafana Dashboard:
+  <img width="1913" height="967" alt="Grafana_Dashboard" src="https://github.com/user-attachments/assets/d2e9c478-8df4-44fa-bced-896df23b4a2c" />
+
+- Grafana Dashboard Data:
+  <img width="1908" height="979" alt="Grafana_Dashboard_data" src="https://github.com/user-attachments/assets/83325da9-eb9b-40a2-9619-e4fe17d318fe" />
+
+- Grafana Current Network Usage:
+  <img width="1916" height="979" alt="Grafana_CurrentNetworkUsage" src="https://github.com/user-attachments/assets/f538969c-440d-49a4-8d5e-47e509904911" />
+
+
+
 
 
 #
