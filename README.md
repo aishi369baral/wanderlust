@@ -201,7 +201,7 @@ sudo systemctl status jenkins
 ## Jenkins Running on Port 8080:
 <img width="1898" height="541" alt="Jenkins_Status_Running" src="https://github.com/user-attachments/assets/0721b0c3-43c8-49e8-9802-84c406f8f576" />
 #
-
+Note: press esc+q
 
 Open Firewall (port 8080 for Jenkins UI):
 <img width="1906" height="750" alt="Jenkins_Port_Openned_8080" src="https://github.com/user-attachments/assets/ecc50fd6-c60e-43f2-9417-f943b1beefe7" />
